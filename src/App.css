@@ -25,6 +25,15 @@ html, body, .Game, #root {
   align-items: center;
 }
 
+#pointer {
+  width: 35px;
+  height: 30px;
+  position: absolute;
+  background: url("img/ship.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .spinnyBoi {
   width:305px;
   transform-origin: left center;

@@ -14,7 +14,7 @@ export default class Game extends React.Component {
       stamina: 100,
       damageOn: true,
       beams: [],
-      spinnybois: [1,1,1,1,1,1,1,1,1,1]
+      spinnybois: []
     }
     
     this.onMouseMove = this.onMouseMove.bind(this);
@@ -40,6 +40,8 @@ export default class Game extends React.Component {
     this.setState({hp: this.state.maxHp})
 
     const eye = document.getElementById('eyeball');
+
+    const pointer = document.getElementById('pointer');
 
     setInterval(() => { //stamina stuff
       staminaChange = 1;
@@ -69,10 +71,15 @@ export default class Game extends React.Component {
       //eyeball
       console.log(this.state.x / 7.5)
 
-      eye.style.top = (this.state.y / 600 * 35) + 265  + "px";
-      eye.style.left = (this.state.x / 600 * 35) + 265 + "px";
+      eye.style.top = (this.state.y / 600 * 35) + 265.5  + "px";
+      eye.style.left = (this.state.x / 600 * 35) + 265.5 + "px";
+
+      //player
+
+      pointer.style.top = this.state.y + "px";
+      pointer.style.left = this.state.x + "px";
       
-    }, 100);
+    }, 10);
 
     for(let i = 0; i < this.state.spinnybois.length; i++)
     {
@@ -183,6 +190,11 @@ export default class Game extends React.Component {
 
       hp.style.width = 150 / this.state.maxHp * (this.state.hp - 1) + "px";
 
+      /*const eye = document.getElementById('eyeball');
+
+      eye.style.top = 0;
+      eye.style.bottom = 0;*/
+
       setTimeout(function() { //Start the timer
         bg.style.transition = "1s";
         bg.style.background = "black";
@@ -206,7 +218,8 @@ export default class Game extends React.Component {
         <div class="GameBoundaries" onMouseMove = {this.onMouseMove} onPointerLeave = {this.Damage}>
           {this.GenerateBeams()}
           {this.GenerateSpinnies()}
-          <div className = "center" onMouseEnter = {this.Damage}>
+          <div id = "pointer"></div>
+          <div className = "center" onMouseMove = {this.Damage}>
             <div id="eyeball"></div>
           </div>
         </div>
