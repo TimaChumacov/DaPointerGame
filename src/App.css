@@ -1,0 +1,203 @@
+body {
+  background-color: rgb(0, 0, 0);
+  transition: 0.05s;
+}
+
+html, body, .Game, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+.Game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GameBoundaries {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinnyBoi {
+  width:305px;
+  transform-origin: left center;
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  height: 30px;
+  background: transparent;
+  box-sizing: border-box;
+  animation: spin 0s linear infinite;
+  transition: 1s ease-in-out;
+}
+
+.spinnyBody {
+  background: url(img/text2chainrot.png);
+  background-size: contain;
+
+  height: 30px;
+  box-sizing: border-box;
+  transition: 1s ease-in-out;
+  border-radius: 0px;
+}
+.spinnyEnd {
+  background: url(img/text2chain.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  transform: translateY(-20%) translateX(60%);
+  height: 50px;
+  width: 130px;
+  float: right;
+  box-sizing: border-box;
+  border-radius: 0px;
+}
+
+.center {
+  width:80px;
+  height: 80px;
+  background: url("img/eyetexturebg.png");
+  background-size: contain;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: 69;
+}
+
+#eyeball {
+  width:35px;
+  height: 35px;
+  position: absolute;
+  background: url("img/eyetextureeye.png");
+  background-size: contain;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: 69;
+  transition: 0.5;
+}
+
+.beam {
+  width:30px;
+  height: 30px;
+  transform-origin: center;
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+.beamBody {
+  width:2000px;
+  left: -1000px;
+  height: 30px;
+  background: rgb(0, 0, 0);
+  position: absolute;
+}
+
+.ray {
+  display: none;
+  animation: shake 0.1s infinite linear;
+}
+
+.warn {
+  background: rgba(0, 0, 0, 0.459);
+}
+
+.bars {
+  width: 300px;
+  height: 20px;
+  background: cadetblue;
+  position: absolute;
+  top: 3px;
+  margin: 0;
+  padding: 0;
+}
+.health {
+  width: 150px;
+  height: 20px;
+  float: left;
+  border: 1px solid red;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hpcounter {
+  width: 150px;
+  height: 20px;
+  color: white;
+  text-align: center;
+  font-size:  16px;;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+#hbar {
+  width: 150px;
+  height: 20px;
+  background: rgba(220, 20, 60, 0.644);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+.stamina {
+  width: 150px;
+  height: 20px;
+  float: left;
+  border: 1px solid rgb(0, 204, 255);
+  background-color: rgba(40, 95, 95, 0.514);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.staminacounter {
+  width: 150px;
+  height: 20px;
+  color: white;
+  text-align: center;
+  font-size:  16px;;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+#staminabar {
+  width: 150px;
+  height: 20px;
+  background: rgb(12, 220, 235);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    height: 27.5px;
+    margin-top: 0px;
+  }
+  100% {
+    height: 32.5px;
+    margin-top: 5px;
+  }
+}
